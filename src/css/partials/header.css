@@ -71,6 +71,97 @@
  overflow: hidden; 
 }
 
+.global-nav button {
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  cursor: pointer;
+}
+.global-nav svg {
+  --icon-color:white;
+}
+
+.global-nav__section-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem 0.625rem;
+  font-size: 1.25rem;;
+}
+.section-heading--green {
+  color: var(--bs-light-green);
+}
+.section-heading--blue {
+  color: var(--bs-light-blue);
+}
+.global-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #333;
+}
+.global-nav__split-button {
+  display: flex;
+  background-color: var(--bs-grey-5);
+}
+
+.global-nav__split-button > a {
+  flex: 1;
+  align-self: center;
+  padding: 1rem 0.625rem;
+  display: block;
+}
+.global-nav__split-button > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  border-left: 1px solid #333;
+}
+.global-nav__split-button > button:hover,
+.global-nav__split-button > a:hover {
+  background-color: var(--bs-grey-4);
+}
+.global-nav__submenu {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+  max-height: 0;
+  transition: all 0.3s ease-out;
+}
+.global-nav__submenu a {
+  display: block;
+  padding: 1rem 0.625rem;
+}
+.global-nav__submenu a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .global-nav > h2,
+  .global-nav__list:first-of-type {
+    display: none;
+  }
+  .global-nav__submenu,
+  .global-nav__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .global-nav__split-button {
+    background-color: inherit;
+  }
+  .global-nav__split-button > button {
+    display: none;
+  }
+  .global-nav__submenu {
+    display: flex;
+    flex-direction: column;
+    max-height: fit-content;
+  }
+  .global-nav__submenu a {
+    padding: 0625rem;
+  }
+}
 .global-nav__toggle--closed {
   display:flex;
   align-items: center;
@@ -79,6 +170,22 @@
   display:none;
   align-items: center;
 }
+.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--closed {
+  display: none;
+}
+.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--open {
+  display: flex;
+}
+
+.global-nav__split-button .icon {
+  transition: all 0.3s;
+}
+
+.global-nav.show,
+.global-nav__submenu.show {
+  max-height: 1000px;
+}
+
 
 /* Hero banner */
 .hero-banner {
