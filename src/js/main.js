@@ -41,7 +41,7 @@ menuButton.addEventListener("click", (ev) => {
 
 async function init() {
   const parkData = await getParkData();
-  const links = getinfoLinks(parkData.images);
+  const links = getInfoLinks(parkData.images);
   setHeaderFooter();
   setParkIntro(parkData);
   setParkInfoLinks(links);
